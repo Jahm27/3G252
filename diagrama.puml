@@ -1,0 +1,105 @@
+@startuml
+Class JuegoBurgerTime{
+-Nivel niveles[5]
+-Jugador jugador1
+-Hamburguesa hamburguesas[4]
+}
+Class Jugador{
+-Puntajes vida [4]
+-Puntajes puntos[]
+-Puntajes nivel[5]
+-Movimiento arriba
+-Movimiento abajo
+-Movimiento izquierda
+-Movimiento derecha
++GanarPunto:PisarIngrediente(Ingrediente)
++MarearEnemigos:ConsumirPimienta(Pimienta)
++Jugar:CaminarPorEscenario(Moverse)
+}
+Class Hamburguesa{
+-Ingrediente panInferior
+-Ingrediente panSuperior
+-Ingrediente lechuga
+-Ingrediente carne
+-Ingrediente quesoAmarillo
+}
+Class Escenario{
+-Jugador jugador1
+-Hamburguesa hamburguesas [4]
+-Entidad ingredientes[]
+-Entidad enemigos []
+-Plato platos [4]
+-Plataformas plataformas [9]
+- Escaleras escaleras[6]
+}
+Class Escaleras
+Class Plataformas
+Class Ingrediente{
+-Movimiento caer
+}
+Class Movimiento
+Class Lechuga
+Class PanSuperior
+Class PanInferior
+Class Carne 
+Class Enemigo{
+-Movimiento arriba
+-Movimiento abajo
+-Movimiento derecha
+-Movimiento izquierda
+}
+Class MrHotDog
+Class MrEgg
+Class MrPickle
+Class Pimienta
+Class Plato
+Class QuesoAmarillo
+Class Entidad{
+-Jugador jugador1
+-Enemigo mrEgg
+-Enemigo mrHotDog
+-Enemigo mrPickle
+-Ingrediente panInferior
+-Ingrediente panSuperior
+-Ingrediente lechuga
+-Ingrediente carne
+-Ingrediente quesoAmarillo
+}
+Class Nivel{
+-Escenario escenarios[5]
++MostraEstadistica:(Puntaje)
+}
+Class Puntajes
+JuegoBurgerTime*-- "1" Jugador
+JuegoBurgerTime*-- "4" Hamburguesa
+Escenario "1" *-- "4" Hamburguesa
+Escaleras "6" --* "1" Escenario
+Plataformas "9" --* "1" Escenario
+Jugador "1" o-- "*" Ingrediente
+Hamburguesa "1" *-- "4:5" Ingrediente
+Ingrediente "1" *-- "*" Movimiento
+Jugador "1" *-- "4" Movimiento
+Jugador "1" o-- "1" Escenario
+PanSuperior --|> Ingrediente
+PanInferior --|> Ingrediente
+Lechuga --|> Ingrediente
+QuesoAmarillo --|> Ingrediente
+Carne --|> Ingrediente
+MrHotDog --|> Enemigo
+MrEgg --|> Enemigo
+MrPickle --|> Enemigo
+Enemigo "1" *-- "4" Movimiento
+Escenario "1" *-- "5" Pimienta
+Escenario "1" *-- "4" Plato
+Jugador "1" o-- "1" Pimienta
+Entidad *-- "16" Ingrediente
+Entidad *-- "3:6" Enemigo
+Entidad *-- "1" Jugador
+Nivel o-- Puntajes
+Jugador "1" *-- "*" Puntajes
+Nivel "1" *-- "1" Escenario
+Escenario "1" *-- Entidad
+JuegoBurgerTime "1" *-- "*" Nivel
+Pimienta --|> Entidad
+
+@enduml
