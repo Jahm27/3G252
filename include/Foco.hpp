@@ -6,8 +6,8 @@ private:
     EstadoFoco estado;
 
 public:
-    void Encender() {}
-    void Apagar() {}
+    void Encender() {estado = true;}
+    void Apagar() {estado = false;}
     Foco() {}
     ~Foco() {}
 };
