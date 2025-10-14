@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
     pixel.blink = true;
     pixel.background_color = Color::Blue3;
     pixel.foreground_color = Color::Red;
-    pixel.character = 'A';
+    pixel.character = 'X';
 
     pantalla.Print();
     cout<<endl;
