@@ -1,2 +1,2 @@
 # 3G252
-Hola Profe, aqu[i esta mi examen del segundo parcial, e sun balon de futbol americano atravesando el campo. 
+Hola Profe, aqui esta mi examen del segundo parcial, es un balon de futbol americano atravesando el campo. 
