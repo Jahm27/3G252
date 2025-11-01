@@ -15,3 +15,10 @@ bin/ejemplo : src/ejemplo.cpp
 
 runEjemplo : bin/ejemplo
 	./bin/ejemplo
+
+bin/examen : src/examen.cpp
+	mkdir -p bin
+	c++ -std=c++17 -Iinclude src/examen.cpp -o bin/examen -lftxui-screen -lftxui-dom -lftxui-component -pthread
+	
+runExamen : bin/examen
+	./bin/examen
